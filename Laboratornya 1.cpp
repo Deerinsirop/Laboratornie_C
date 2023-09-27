@@ -22,19 +22,44 @@
 #include <iostream>
 #include <string> 
 #include <cstring>
-
 int main() {
-	std::string alfabet; //инициализировали переменную 
-	int znaki = alfabet.length();
-	char char_array[znaki + 1];
-	strcpy(char_array, alfabet.c_str());
+	system("chcp 1251");
+	system("cls");
+	setlocale(LC_ALL, "rus");
+	std::string alfabet; //инициализировали переменную  
 	std::cout << "¬ведите строку "; //просим написать строку
 	std::cin >> alfabet;
-	for (int i = 0; 1 < znaki; i++)
-	{
-		std::cout << char_array[i];
-		std::cout << "\n";
+	std::string rus;//делаем строки с буквами алфавита русского
+	std::string eng;//английского
+	std::string znaki;//и знаки тоже в виде строки
+	std::string sort = ""; //пуста€ строка
+	rus = "абвгдеЄжзийклмнопрстуфхцчшщыъьэю€јЅ¬√ƒ≈®∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёя";
+	eng = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	znaki = "1234567890\"'/<>;({[)}]-_=+|@#$%^&*";
+	//std::cout << alfabet; //проверка работы строки
+	for (int i = 0; i < eng.length(); i++) {//тут сравниваем нашу строку с английским алфавитом. ѕишем код дл€ прохождени€ по каждому элементу в алфавите
+		for (int j = 0; j < alfabet.length(); j++) {//пишем функцию дл€ прохождени€ по каждому элементу строки
+			if (alfabet[j] == eng[i]) {//сравниваем каждый элемент строки с элементом алфавита
+				sort += alfabet[j];//в пустую строку добавл€ем нашу новую строку
+
+			}
+		}
 	}
-	if (int znaki::alfabet) {
-		std::cout << znaki << std::endl;
+
+	for (int q = 0; q < rus.length(); q++) {//сравниваем нашу строку с русским алфавитом
+		for (int j = 0; j < alfabet.length(); j++) {
+			if (alfabet[j] == rus[q]) {
+				sort += alfabet[j];
+			}
+		}
 	}
+	for (int w = 0; w < znaki.length(); w++) {//сравниваем нашу строку с числами и знаками
+		for (int j = 0; j < alfabet.length(); j++) {
+			if (alfabet[j] == znaki[w]) {
+				sort += alfabet[j];
+			}
+		}
+	}
+	std::cout << sort;//выводим нашу переменную с преобразованной строкой
+	return 0;
+}
